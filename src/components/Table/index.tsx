@@ -1,5 +1,8 @@
+import { useMemo, useState } from "react";
 import cn from "@/utils/classnames";
+import { getPaginatedData, getTotalPages } from "@/utils/pagination";
 import Button from "@/components/Button";
+import Pagination from "@/components/Pagination/index";
 
 interface Props {
   title?: string;
@@ -20,7 +23,18 @@ const Table = ({
   filters,
   activeFilter,
   isLoading,
+  paginated = false,
 }: Props) => {
+  const [page, setPage] = useState(1);
+
+  const { totalPages, paginatedData } = useMemo(
+    () => ({
+      paginatedData: paginated ? getPaginatedData(data, page, 10) : data,
+      totalPages: getTotalPages(data?.length, 10),
+    }),
+    [data, page]
+  );
+
   return (
     <div className="mt-2">
       <div className="mt-2 mb-4 p-2 bg-[#0A1614] border border-[#242F2D] rounded-xl w-full">
@@ -43,12 +57,12 @@ const Table = ({
             {isLoading ? "Loading..." : "No available Data."}
           </div>
         ) : (
-          data.map((item: any) => (
+          paginatedData.map((item: any) => (
             <div
               onClick={onClick ? () => onClick(item) : () => {}}
               key={item.id}
               className={cn(
-                `grid grid grid-cols-${columns.length} p-4 border-b border-[#16211F] last:border-0`,
+                `grid grid-cols-${columns.length} p-4 border-b border-[#16211F] last:border-0`,
                 onClick ? "md:hover:bg-[#1A2726] md:cursor-pointer" : ""
               )}
             >
@@ -67,6 +81,17 @@ const Table = ({
           ))
         )}
       </div>
+
+      {paginated ? (
+        <div className="flex justify-center">
+          <Pagination
+            page={page}
+            totalPages={totalPages}
+            onSelect={(page: number) => setPage(page)}
+            visible={!isLoading}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
