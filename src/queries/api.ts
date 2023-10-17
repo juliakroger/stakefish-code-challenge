@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
-import axios, { AxiosRequestConfig } from "axios";
+import axios from "axios";
 
+// const FAVORITES_KEY = "stakefish-code-challenge-list-favorites";
 axios.defaults.baseURL = "https://api.coingecko.com/api/v3";
 
 export const getListOfExchanges = () => {
   return useFetch("/exchanges?per_page=400");
 };
 
-const config: AxiosRequestConfig = {
-  headers: {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "*",
-  },
+export const getExchangeInfo = (id?: string) => {
+  return useFetch(`/exchanges/${id}`);
+};
+
+export const getCoinPrice = (id?: string) => {
+  return useFetch(`/simple/price?ids=${id}&vs_currencies=usd`);
 };
 
 export const useFetch = (endpoint: string) => {
@@ -22,7 +24,7 @@ export const useFetch = (endpoint: string) => {
   const fetch = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(endpoint, config);
+      const response = await axios.get(endpoint);
       setData(response.data);
     } catch (err) {
       setError(err);

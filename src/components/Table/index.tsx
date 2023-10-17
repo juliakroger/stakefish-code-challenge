@@ -37,10 +37,10 @@ const Table = ({
   );
 
   return (
-    <div className="md:p-4">
-      <div className="mt-2 mb-4 md:bg-green-600 md:border border-gray-400 rounded-xl w-full">
+    <div className="md:p-4 w-full">
+      <div className="mt-2 mb-4 md:bg-green-600 md:border border-gray-500 rounded-xl">
         {title ? (
-          <div className="flex justify-center md:justify-between items-center border-b border-gray-400 p-3 gap-10">
+          <div className="flex justify-center md:justify-between items-center border-b border-gray-500 p-3 gap-10">
             <div className="flex">{title}</div>
             {filters ? (
               <div className="flex items-center gap-1 text-xs">
@@ -68,11 +68,11 @@ const Table = ({
               onClick={onClick ? () => onClick(item) : () => {}}
               key={item.id}
               className={cn(
-                `md:grid grid-cols-${columns.length} p-4 m-2 md:m-0 bg-green-500 md:bg-green-600 md:border-b border-green-500 last:border-0 rounded-xl md:rounded-none`,
-                onClick ? "md:hover:bg-gray-600 md:cursor-pointer" : ""
+                `md:grid grid-cols-4 p-4 m-2 md:m-0 bg-green-500 md:bg-transparent md:border-b border-green-500 last:border-0 rounded-xl md:rounded-none`,
+                onClick ? "md:hover:bg-gray-700 md:cursor-pointer" : ""
               )}
             >
-              <div className="md:hidden">
+              <div className="md:hidden `w-full">
                 <Column
                   id={columns[0].id}
                   customRender={columns[0].customRender}
@@ -80,12 +80,7 @@ const Table = ({
                   left
                 />
 
-                <div
-                  className={cn(
-                    `flex justify-between`,
-                    "pt-2 mt-3 border-t border-gray-300"
-                  )}
-                >
+                <div className="flex justify-between pt-2 mt-3 border-t border-gray-400">
                   {columns
                     .filter((_, index) => index !== 0)
                     .map(({ right, id, customRender, className }, index) => (

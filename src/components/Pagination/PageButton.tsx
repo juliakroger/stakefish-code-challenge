@@ -16,7 +16,7 @@ const PageButton = ({ pageValue, currentPage, onSelect, disabled }: Props) => (
         "w-8 h-8 flex items-center justify-center text-white rounded",
         currentPage === pageValue
           ? "bg-green-300 border border-green-300 font-bold"
-          : "bg-gray-200 border border-gray-300",
+          : "bg-gray-300 border border-gray-400",
         !disabled && currentPage !== pageValue ? "hover:bg-green-400" : ""
       )}
     >

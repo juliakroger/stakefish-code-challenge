@@ -13,7 +13,7 @@ const NextButton = ({ selectNext, disabled }: Props) => (
       className={cn(
         disabled
           ? "hidden"
-          : "flex items-center justify-center bg-gray-200 w-8 h-8 border border-gray-300 rounded"
+          : "flex items-center justify-center bg-gray-300 w-8 h-8 border border-gray-400 rounded"
       )}
     >
       <span className="sr-only">Next</span>

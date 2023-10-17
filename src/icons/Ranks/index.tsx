@@ -9,7 +9,7 @@ import Rank_8 from "./8";
 import Rank_9 from "./9";
 import Rank_10 from "./10";
 
-const Rank = ({ rank = 1 }) => {
+const getRankLogo = (rank: number) => {
   switch (rank) {
     case 1:
       return <Rank_1 />;
@@ -34,6 +34,15 @@ const Rank = ({ rank = 1 }) => {
     default:
       return <Rank_1 />;
   }
+};
+
+const Rank = ({ rank = 1 }) => {
+  return (
+    <div className="flex flex-col items-center">
+      {getRankLogo(rank)}
+      <span className="hidden md:flex text-xs font-bold">Trust Score</span>
+    </div>
+  );
 };
 
 export default Rank;

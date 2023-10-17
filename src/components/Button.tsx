@@ -3,7 +3,7 @@ import cn from "@/utils/classnames";
 const BASE_CLASS = "p-2 px-5 rounded-full";
 
 const STYLES = {
-  default: "bg-gray-100 border border-gray-500",
+  default: "bg-gray-200 border border-gray-600",
   active: "font-bold bg-green-200 border border-green-100",
 };
 
