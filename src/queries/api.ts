@@ -16,6 +16,13 @@ export const getCoinPrice = (id?: string) => {
   return useFetch(`/simple/price?ids=${id}&vs_currencies=usd`);
 };
 
+const config = {
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "*",
+  },
+};
+
 export const useFetch = (endpoint: string) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<unknown>();
@@ -24,7 +31,7 @@ export const useFetch = (endpoint: string) => {
   const fetch = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get(endpoint);
+      const response = await axios.get(endpoint, config);
       setData(response.data);
     } catch (err) {
       setError(err);

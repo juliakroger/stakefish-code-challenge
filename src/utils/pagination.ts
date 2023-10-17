@@ -1,4 +1,4 @@
-const getPageIndices = (
+export const getPageIndices = (
   currentPage: number,
   itemsPerPage: number,
   totalItems: number
@@ -12,14 +12,14 @@ export const getTotalPages = (pageSize: number, itemsPerPage: number) =>
   Math.ceil(pageSize / itemsPerPage);
 
 export const getPaginatedData = (
-  data: any[],
+  data: null | any[],
   page: number,
   itemsPerPage: number
 ) => {
   const { startIndex, endIndex } = getPageIndices(
     page,
     itemsPerPage,
-    data?.length
+    data?.length || 0
   );
 
   return data?.slice(startIndex, endIndex) || [];
