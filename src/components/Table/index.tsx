@@ -121,7 +121,7 @@ const Table = ({
           <Pagination
             page={page}
             totalPages={totalPages}
-            onSelect={(page: number) => setPage(page)}
+            onSelect={(page: number) => [setPage(page), window.scrollTo(0, 0)]}
             visible={!isLoading}
           />
         </div>
