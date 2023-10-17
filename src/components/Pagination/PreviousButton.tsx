@@ -12,7 +12,7 @@ const PreviousButton = ({ selectPrevious, disabled }: Props) => (
       className={cn(
         disabled
           ? "hidden"
-          : "flex items-center justify-center bg-[#1B2624] w-8 h-8 border border-[#26302F] rounded"
+          : "flex items-center justify-center bg-gray-200 w-8 h-8 border border-gray-300 rounded"
       )}
     >
       <span className="sr-only">Previous</span>

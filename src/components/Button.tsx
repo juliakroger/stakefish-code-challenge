@@ -3,8 +3,8 @@ import cn from "@/utils/classnames";
 const BASE_CLASS = "p-2 px-5 rounded-full";
 
 const STYLES = {
-  default: "bg-[#192422] border border-[#313B3A]",
-  active: "font-bold bg-[#2E9575] border border-[#09553D]",
+  default: "bg-gray-100 border border-gray-500",
+  active: "font-bold bg-green-200 border border-green-100",
 };
 
 interface Props {

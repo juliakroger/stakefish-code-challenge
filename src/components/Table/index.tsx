@@ -36,10 +36,10 @@ const Table = ({
   );
 
   return (
-    <div className="mt-2">
-      <div className="mt-2 mb-4 p-2 bg-[#0A1614] border border-[#242F2D] rounded-xl w-full">
+    <div className="p-4">
+      <div className="mt-2 mb-4 bg-green-600 border border-gray-400 rounded-xl w-full">
         {title ? (
-          <div className="flex justify-center md:justify-between items-center border-b border-[#242F2D] p-3 gap-10">
+          <div className="flex justify-center md:justify-between items-center border-b border-gray-400 p-3 gap-10">
             <div className="flex">{title}</div>
             <div className="flex items-center gap-1 text-xs">
               {filters?.map((filter) => (
@@ -62,8 +62,8 @@ const Table = ({
               onClick={onClick ? () => onClick(item) : () => {}}
               key={item.id}
               className={cn(
-                `grid grid-cols-${columns.length} p-4 border-b border-[#16211F] last:border-0`,
-                onClick ? "md:hover:bg-[#1A2726] md:cursor-pointer" : ""
+                `grid grid-cols-${columns.length} p-4 border-b border-green-500 last:border-0`,
+                onClick ? "md:hover:bg-gray-600 md:cursor-pointer" : ""
               )}
             >
               {columns.map(({ id, left, right, customRender }) => (

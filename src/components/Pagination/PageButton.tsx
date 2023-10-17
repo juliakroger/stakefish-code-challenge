@@ -15,9 +15,9 @@ const PageButton = ({ pageValue, currentPage, onSelect, disabled }: Props) => (
       className={cn(
         "w-8 h-8 flex items-center justify-center text-white rounded",
         currentPage === pageValue
-          ? "bg-[#309575] border border-[#309575] font-bold"
-          : "bg-[#1B2624] border border-[#26302F]",
-        !disabled && currentPage !== pageValue ? "hover:bg-[#21473D]" : ""
+          ? "bg-green-300 border border-green-300 font-bold"
+          : "bg-gray-200 border border-gray-300",
+        !disabled && currentPage !== pageValue ? "hover:bg-green-400" : ""
       )}
     >
       {pageValue}
