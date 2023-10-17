@@ -21,6 +21,7 @@ const Exchanges = () => {
     },
     {
       id: "country",
+      className: "w-2/4",
     },
     {
       id: "trust_score",
@@ -35,6 +36,7 @@ const Exchanges = () => {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={(e) => e.stopPropagation()}
         >
           <ExternalLink />
           <span className="hidden md:flex truncate max-w-[200px]">{url}</span>
