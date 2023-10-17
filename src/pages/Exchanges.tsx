@@ -51,6 +51,7 @@ const Exchanges = () => {
         data={data}
         columns={columns}
         onClick={(row: any) => navigate(`/${row.id}`)}
+        paginated
         // filters={[
         //   { id: "all", label: "All" },
         //   { id: "favorites", label: "Favorites" },
