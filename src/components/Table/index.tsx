@@ -65,6 +65,7 @@ const Table = ({
         ) : (
           paginatedData.map((item: any) => (
             <div
+              data-cy="table-row"
               onClick={onClick ? () => onClick(item) : () => {}}
               key={item.id}
               className={cn(

@@ -8,6 +8,7 @@ interface Props {
 const PreviousButton = ({ selectPrevious, disabled }: Props) => (
   <li>
     <button
+      data-cy="pagination-previous-button"
       onClick={selectPrevious}
       className={cn(
         disabled

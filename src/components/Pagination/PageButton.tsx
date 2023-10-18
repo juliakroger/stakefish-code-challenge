@@ -10,6 +10,7 @@ interface Props {
 const PageButton = ({ pageValue, currentPage, onSelect, disabled }: Props) => (
   <li>
     <button
+      data-cy={`pagination-${pageValue}-button`}
       disabled={disabled}
       onClick={onSelect}
       className={cn(

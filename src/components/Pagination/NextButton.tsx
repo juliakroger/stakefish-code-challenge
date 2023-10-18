@@ -8,6 +8,7 @@ interface Props {
 const NextButton = ({ selectNext, disabled }: Props) => (
   <li>
     <button
+      data-cy="pagination-next-button"
       onClick={selectNext}
       disabled={disabled}
       className={cn(

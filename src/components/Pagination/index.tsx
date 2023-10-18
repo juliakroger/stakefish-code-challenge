@@ -16,6 +16,7 @@ const Pagination = ({ page, totalPages, onSelect, visible }: Props) => {
         selectPrevious={() => onSelect(page - 1)}
         disabled={page === 1}
       />
+
       <PaginationList
         totalPages={totalPages}
         page={page}
